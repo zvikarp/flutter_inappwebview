@@ -3245,7 +3245,9 @@ if(window.\(JAVASCRIPT_BRIDGE_NAME)[\(_callHandlerID)] != null) {
         isPausedTimersCompletionHandler = nil
         SharedLastTouchPointTimestamp.removeValue(forKey: self)
         callAsyncJavaScriptBelowIOS14Results.removeAll()
-        super.removeFromSuperview()
+        if (super.superview) {
+          super.removeFromSuperview()
+        }
         plugin = nil
     }
     
